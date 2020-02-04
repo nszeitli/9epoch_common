@@ -6,25 +6,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.18" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
     <PackageReference Include="WeCantSpell.Hunspell" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="API\keys.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>keys.json</DependentUpon>
-    </Compile>
+    <Reference Include="Cmd161">
+      <HintPath>D:\Trading\Iress\Iress\Cmd161.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DfsCmd">
+      <HintPath>D:\Trading\Iress\Iress\Interop.DfsCmd.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DfsIress">
+      <HintPath>D:\Trading\Iress\Iress\Interop.DfsIress.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="API\keys.json">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>keys.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties api_4keys_1json__JsonSchema="http://json-schema.org/draft-04/schema" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

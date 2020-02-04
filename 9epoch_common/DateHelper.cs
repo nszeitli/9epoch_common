@@ -7,13 +7,13 @@ namespace _9epoch_common
 {
     public static class DateHelper
     {
-        public static DateTime ParseExact(string s, out bool ok, string format = "yyyy-MM-dd hh:mm tt")
+        public static bool ParseExact(string s, out DateTime dateTime, string format = "yyyy-MM-dd hh:mm tt")
         {
-            DateTime output = DateTime.MinValue;
-            ok = DateTime.TryParseExact(s, format, CultureInfo.InvariantCulture,
-                                DateTimeStyles.None, out output);
+            dateTime = DateTime.MinValue;
+            bool ok = DateTime.TryParseExact(s, format, CultureInfo.InvariantCulture,
+                                DateTimeStyles.None, out dateTime);
 
-            return output;
+            return ok;
         }
 
     }
