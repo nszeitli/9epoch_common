@@ -8,6 +8,24 @@ namespace _9epoch_common
 {
     public static class Financial
     {
+        public static DateTime FindNextOpen()
+        {
+            if ((DateTime.Now.DayOfWeek != DayOfWeek.Saturday || DateTime.Now.DayOfWeek != DayOfWeek.Sunday) && DateTime.Now.Hour >= 0 && DateTime.Now.Hour < 10)
+            {
+                //pre open
+                return DateTime.Today.AddHours(9).AddMinutes(57);
+            }
+            DateTime nextOpen = DateTime.Today.AddDays(1);
+            nextOpen = nextOpen.AddHours(9).AddMinutes(57);
+
+            if (DateTime.Now.DayOfWeek == DayOfWeek.Friday)
+            {
+                //if its a friday then next open is monday
+                nextOpen = nextOpen.AddDays(2);
+            }
+
+            return nextOpen;
+        }
         public static double CalcDailySharpe(List<double> dailyReturns)
         {
             double sr = 0;

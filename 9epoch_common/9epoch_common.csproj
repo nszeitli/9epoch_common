@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>_9epoch_common</RootNamespace>
+    <Authors>Nathan Szeitli</Authors>
+    <Company>9epoch</Company>
+    <Description>Collection of utilities and tools for financial analysis in dotnet</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,18 +13,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="RestSharp" Version="106.10.1" />
     <PackageReference Include="WeCantSpell.Hunspell" Version="3.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Cmd161">
-      <HintPath>D:\Trading\Iress\Iress\Cmd161.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.DfsCmd">
-      <HintPath>D:\Trading\Iress\Iress\Interop.DfsCmd.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.DfsIress">
-      <HintPath>D:\Trading\Iress\Iress\Interop.DfsIress.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
