@@ -79,5 +79,42 @@ namespace _9epoch_common.HTML
             }
             return annList;
         }
+
+        public List<string> ParseASXForeignEntityDataLinks(string html)
+        {
+            List<string> links = new List<string>();
+
+            //Load html into agility pack
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            var annNode = doc.DocumentNode.SelectSingleNode(@"//*[@class=""primary""]");
+
+            if (annNode != null)
+            {
+                //get all rows in table
+                var allRows = annNode.SelectNodes(".//tr");
+                int iRow = 0;
+                foreach (var row in allRows)
+                {
+                    //Skip header
+                    if (iRow > 0)
+                    {
+                        try
+                        {
+                            var dataTd = row.SelectNodes(".//td");
+
+                            var a = dataTd[1];
+                            string link = a.SelectSingleNode(".//a").Attributes["href"].Value;
+
+                            if(link.Length > 0) { links.Add(link); }
+                            
+                        }
+                        catch (Exception e) { Console.WriteLine("Warning: row parse failed from ASX announcements"); }
+                    }
+                    iRow++;
+                }
+            }
+            return links;
+        }
     }
 }
